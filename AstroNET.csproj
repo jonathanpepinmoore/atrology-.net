@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Authors>Salvatore Amaddio</Authors>
+		<UseWPF>true</UseWPF>
+		<Authors>Salvatore Amaddio</Authors>
+		<Copyright>Salvatore Amaddio</Copyright>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<SignAssembly>False</SignAssembly>
+		<ApplicationIcon>astrology.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="astrology.ico" />
+		<Content Include="Data\zodiac.db">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="assets\aspects\conjuction.png" />
+		<Resource Include="assets\aspects\opposition.png" />
+		<Resource Include="assets\aspects\semisquare.png" />
+		<Resource Include="assets\aspects\sesquisquare.png" />
+		<Resource Include="assets\aspects\sextile.png" />
+		<Resource Include="assets\aspects\square.png" />
+		<Resource Include="assets\aspects\trine.png" />
+		<Resource Include="assets\img\download.png" />
+		<Resource Include="assets\img\earth.png" />
+		<Resource Include="assets\img\placeholder.jpg" />
+		<Resource Include="assets\planets\jupiter.png" />
+		<Resource Include="assets\planets\mars.png" />
+		<Resource Include="assets\planets\mercury.png" />
+		<Resource Include="assets\planets\moon.png" />
+		<Resource Include="assets\planets\neptune.png" />
+		<Resource Include="assets\planets\pluto.png" />
+		<Resource Include="assets\planets\saturn.png" />
+		<Resource Include="assets\planets\sun.png" />
+		<Resource Include="assets\planets\uranus.png" />
+		<Resource Include="assets\planets\venus.png" />
+		<Resource Include="assets\sign\aquarius.png" />
+		<Resource Include="assets\sign\aries.png" />
+		<Resource Include="assets\sign\cancer.png" />
+		<Resource Include="assets\sign\capricorn.png" />
+		<Resource Include="assets\sign\gemini.png" />
+		<Resource Include="assets\sign\leo.png" />
+		<Resource Include="assets\sign\libra.png" />
+		<Resource Include="assets\sign\pisces.png" />
+		<Resource Include="assets\sign\sagittarius.png" />
+		<Resource Include="assets\sign\scorpio.png" />
+		<Resource Include="assets\sign\taurus.png" />
+		<Resource Include="assets\sign\virgo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="assets\img\astrology.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="AstroNETSettings.Designer.cs">
+		  <DesignTimeSharedInput>True</DesignTimeSharedInput>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>AstroNETSettings.settings</DependentUpon>
+		</Compile>
+		<Compile Update="View\Horoscopes\MoonReturnWindow.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="View\Library\LibraryWindowList\LibraryStarHousesWindowList.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="View\Library\LibraryWindow\LibraryStarHouseWindow.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="View\Library\LibraryWindowList\LibraryHouseSignsWindowList.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="View\Library\LibraryWindow\LibraryHouseSignWindow.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="View\Library\SinastryRules.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="personPictures\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\AstroNETLibrary\AstroNETLibrary.csproj" />
+	  <ProjectReference Include="..\DesktopBusinessAppSharpBuilder\FrontEnd.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="AstroNETSettings.settings">
+	    <Generator>SettingsSingleFileGenerator</Generator>
+	    <LastGenOutput>AstroNETSettings.Designer.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+</Project>

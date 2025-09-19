@@ -1,0 +1,102 @@
+﻿<Grid x:Class="AstroNET.View.ChartViewContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AstroNET.View"
+             xmlns:fr="clr-namespace:FrontEnd.Forms;assembly=FrontEnd"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid fr:Definition.RowDefinitions="18,*">
+        <fr:Curtain x:Name="Curtain" Grid.RowSpan="3"/>
+        <Menu VerticalAlignment="Center">
+            <fr:OpenCurtain Command="{Binding OpenCurtainCMD}"/>
+            <MenuItem Header="_Charts">
+                <MenuItem Header="_New" Click="AddNew" InputGestureText="Ctrl+N">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource plus}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Archive" Click="OpenArchive" InputGestureText="Ctrl+A">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource folder}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Database">
+                <MenuItem Header="_Signs" Click="OpenSignList">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/assets/sign/scorpio.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Stars" Click="OpenStars" InputGestureText="Ctrl+P">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/assets/planets/mars.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Houses" Click="OpenHouses"/>
+                <MenuItem Header="_Aspects" Click="OpenAspectClicked">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/assets/aspects/opposition.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="_Atlas">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/assets/img/earth.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="_Location Downloader" Click="OpenLocationDownloader" InputGestureText="Ctrl+D">
+                        <MenuItem.Icon>
+                            <Image Source="pack://application:,,,/assets/img/download.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Library">
+                <MenuItem Header="_Natal Chart">
+                    <MenuItem Header="_Aspects" Click="OnRadixAspectsClicked"/>
+                    <MenuItem Header="_Stars in Houses" Click="OnRadixHousesClicked"/>
+                    <MenuItem Header="_Stars in Signs" Click="OnStarInSignClicked"/>
+                    <MenuItem Header="_Houses in Signs" Click="OnHouseInSignClicked"/>
+                    <MenuItem Header="_Rules" Click="OnNatalChartRulesClicked"/>
+                </MenuItem>
+                <MenuItem Header="_Transits">
+                    <MenuItem Header="_Aspects" Click="OnTransitAspectsClicked"/>
+                    <MenuItem Header="_Stars in Houses" Click="OnTransitHousesClicked"/>
+                </MenuItem>
+                <MenuItem Header="_Returns">
+                    <MenuItem Header="_Stars in Houses" Click="OnReturnHousesClicked"/>
+                </MenuItem>
+                <MenuItem Header="_Sinastry">
+                    <MenuItem Header="_Aspects" Click="OnSinastryAspectsClicked"/>
+                    <MenuItem Header="_Stars in Houses" Click="OnSinastryHousesClicked"/>
+                    <MenuItem Header="_Rules" Click="OnSinastryRulesClicked"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Returns">
+                <MenuItem Header="_Sun" Click="OpenSunReturn" InputGestureText="Ctrl+R">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/assets/planets/sun.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Moon" Click="OpenMoonReturn" InputGestureText="Ctrl+M">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/assets/planets/moon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Horoscope" Click="OpenHoroscope"/>
+            <MenuItem Header="_Sinastria" Click="OpenSinastry" InputGestureText="Ctrl+C"/>
+            <MenuItem Header="Transits" Click="OpenTransitCalcualtor" />
+            <MenuItem Header="_Settings">
+                <MenuItem Header="_Default Location" Click="OpenDefaultLocationSettings"/>
+            </MenuItem>
+            <MenuItem Header="Export">
+                <MenuItem Header="Chart" Click="OnExportClicked"/>
+            </MenuItem>
+            <MenuItem Header="References" Click="OnReferencesClick"/>
+        </Menu>
+        <local:ChartView Grid.Row="1" x:Name="NatalChartCanvas" Background="#FFFFF0"/>
+    </Grid>
+</Grid>
